@@ -1,10 +1,17 @@
 package main
 
 import (
-	"fmt"
+	"citycode/middleware"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	fmt.Println("-----------------")
-
+	router := gin.Default()
+	router.Use(middleware.AddReqIDInMiddleware())
+	router.GET("/", func(c *gin.Context) {
+		c.String(http.StatusOK, "Hello World")
+	})
+	router.Run(":8080")
 }
