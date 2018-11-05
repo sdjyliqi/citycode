@@ -1,6 +1,10 @@
 package main
 
-function  main(){
+import (
+	"fmt"
+)
 
-	fmt.Println("===========")
+func main() {
+	fmt.Println("-----------------")
+
 }
